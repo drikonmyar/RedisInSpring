@@ -3,6 +3,7 @@ package com.redis.controller;
 import com.redis.model.User;
 import com.redis.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
+    @Cacheable(key = "#userId", value = "USER")
     public User getUser(@PathVariable String userId){
         return userRepository.getUser(userId);
     }

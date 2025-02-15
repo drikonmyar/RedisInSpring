@@ -1,6 +1,8 @@
 package com.redis.repository;
 
 import com.redis.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,6 +13,7 @@ import java.util.Map;
 @Repository
 public class UserRepository {
 
+    private static final Logger log = LoggerFactory.getLogger(UserRepository.class);
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
@@ -24,6 +27,7 @@ public class UserRepository {
 
     //get user by userId
     public User getUser(String userId){
+        log.info("fetching user details from db");
         return (User) redisTemplate.opsForHash().get(KEY, userId);
     }
 
