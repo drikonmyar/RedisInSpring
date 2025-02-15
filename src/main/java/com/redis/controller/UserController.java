@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    @Cacheable(key = "#userId", value = "USER")
+    @Cacheable(key = "#userId", value = "USER", unless = "#result != null && #result.email.endsWith('@gmail.com')")
     public User getUser(@PathVariable String userId){
         return userRepository.getUser(userId);
     }
