@@ -3,6 +3,7 @@ package com.redis.controller;
 import com.redis.model.User;
 import com.redis.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,6 +36,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{userId}")
+    @CacheEvict(key = "#userId", value = "USER")
     public void deleteUser(@PathVariable String userId){
         userRepository.deleteUser(userId);
     }
