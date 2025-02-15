@@ -14,6 +14,6 @@
 
 2. Wnen the API is hit for the 2nd time, if the same data is to be retrieved that was cached before, it will come from the cache and not be extracted from the db, so takes less time
 
-![image](https://github.com/user-attachments/assets/26999ed2-474e-4c73-99d6-17e30f128a55)
+<img width="891" alt="lessrt" src="https://github.com/user-attachments/assets/a4d28bf4-b260-4773-99b4-3ad665ed8ee1" />
 
 ![image](https://github.com/user-attachments/assets/fff590d0-70ae-43e6-be23-89170b7056d8)
